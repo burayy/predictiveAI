@@ -5,3 +5,5 @@ joblib==1.1.1  # or any compatible version higher than 1.1.0
 numpy==1.23.1
 gunicorn==20.1.0
 Cython==0.29.32
+scipy==1.9.1  # or a specific version that works well in the Render environment
+
