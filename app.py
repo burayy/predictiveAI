@@ -12,6 +12,8 @@ scaler = joblib.load('scaler.pkl')
 
 app = Flask(__name__)
 
+
+@app.route('/')
 def home();
     return "LSTM Model API is Runnin!"
 
