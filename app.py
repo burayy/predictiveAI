@@ -12,7 +12,7 @@ scaler = joblib.load('scaler.pkl')
 
 app = Flask(__name__)
 
-def home()
+def home();
     return "LSTM Model API is Runnin!"
 
 @app.route('/predict', methods=['POST'])
