@@ -2,20 +2,14 @@ from flask import Flask, jsonify, request
 import numpy as np
 import tensorflow as tf
 import joblib
-import os
 
-# Load the trained model without compiling it to avoid serialization issues
-model = tf.keras.models.load_model('fishpond_model.h5', compile=False)
+# Load the trained model
+model = tf.keras.models.load_model('fishpond_model.keras', compile=False)
 
 # Load the scaler
 scaler = joblib.load('scaler.pkl')
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def home();
-    return "LSTM Model API is Runnin!"
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -51,5 +45,4 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-        port = int(os.environ.get('PORT', 5000))  # Default to 5000 if no PORT is set
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=5000)
